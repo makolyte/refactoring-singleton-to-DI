@@ -13,13 +13,14 @@ namespace Step0_SingletonsEverywhere
             //composition root
             var logger = new Logger();
             var repository = new InMemoryRepository(logger);
+            var cancelOrderHandler = new CancelOrderHandler(logger, repository);
 
             //using it
             var order = new Order() { Id = 1 };
             repository.Save(order);
 
             var cancelOrderCommand = new CancelOrder() { OrderId = order.Id };
-            CancelOrderHandler.GetInstance(logger, repository).Handle(cancelOrderCommand);
+            cancelOrderHandler.Handle(cancelOrderCommand);
 
             Console.ReadLine();
         }
