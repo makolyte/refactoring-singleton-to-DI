@@ -1,6 +1,6 @@
 # Step 0 - Starting point
 
-You're using the singleton pattern everywhere with hardcoded dependencies. You wanted to make sure there's only a single instance of these classes and using static accessors is really convienent at first.
+You're using the singleton pattern everywhere with hardcoded dependencies. You wanted to make sure there's only a single instance of these classes and using static accessors is really convienent at first. You decide to refactor to use the DI pattern instead.
 
 # Step 1 - Refactor to the DI pattern
 
