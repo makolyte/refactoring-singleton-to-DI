@@ -1,6 +1,6 @@
 # Step 0 - Starting point
 
-You're using the singleton pattern everywhere with hardcoded dependencies. You wanted to make sure there's only a single instance of these classes and using static accessors is really convienent at first.
+You're using the singleton pattern everywhere with hardcoded dependencies. You wanted to make sure there's only a single instance of these classes and using static accessors is really convienent at first. You decide to refactor to use the DI pattern instead.
 
 # Step 1 - Refactor to the DI pattern
 
@@ -44,7 +44,7 @@ cancelOrderHandler.Handle(new CancelOrder(1));
 
 Note: Use whatever DI library you want.
 
-I may provide the refactoring step projects in the future as a reference. To maximize learning, I suggest starting with the Step0-StartingPoint project and copying it to a new project to do the refactoring. That way you can compare the starting point and refactored code.
+To maximize learning, I suggest starting with the Step0-StartingPoint project, and then taking a look at the Step1 and Step2 projects for reference.
 
 # References
 1. Names and dependencies are from this realistic-looking example: https://docs.simpleinjector.org/en/latest/quickstart.html
