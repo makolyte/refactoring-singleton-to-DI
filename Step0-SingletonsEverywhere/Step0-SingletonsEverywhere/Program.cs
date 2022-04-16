@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,13 @@ namespace Step0_SingletonsEverywhere
     {
         static void Main(string[] args)
         {
-            InMemoryRepository.Instance.Save(new Order() { Id = 1 });
+            var order = new Order() { Id = 1 };
+            InMemoryRepository.GetInstance().Save(order);
 
-            var cancelOrderCommand = new CancelOrder() { OrderId = 1 };
-            CancelOrderHandler.Instance.Handle(cancelOrderCommand);
+            var cancelOrderCommand = new CancelOrder() { OrderId = order.Id };
+            CancelOrderHandler.GetInstance().Handle(cancelOrderCommand);
 
-            var order = InMemoryRepository.Instance.GetById(1);
-            Logger.Instance.Log($"Order {order.Id} status = {order.Status}");
+            Console.ReadLine();
         }
     }
 }

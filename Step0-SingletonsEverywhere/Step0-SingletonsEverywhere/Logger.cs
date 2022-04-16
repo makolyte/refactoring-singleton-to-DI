@@ -6,16 +6,13 @@ namespace Step0_SingletonsEverywhere
     {
         #region Singleton pattern
         private static Logger instance;
-        public static Logger Instance
+        public static Logger GetInstance()
         {
-            get
+            if (instance == null)
             {
-                if (instance == null)
-                {
-                    instance = new Logger();
-                }
-                return instance;
+                instance = new Logger();
             }
+            return instance;
         }
         private Logger() { }
         #endregion

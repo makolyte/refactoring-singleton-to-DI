@@ -7,16 +7,13 @@ namespace Step0_SingletonsEverywhere
     {
         #region Singleton pattern
         private static InMemoryRepository instance;
-        public static InMemoryRepository Instance
+        public static InMemoryRepository GetInstance()
         {
-            get
+            if (instance == null)
             {
-                if (instance == null)
-                {
-                    instance = new InMemoryRepository();
-                }
-                return instance;
+                instance = new InMemoryRepository();
             }
+            return instance;
         }
         private InMemoryRepository() 
         {
@@ -26,13 +23,13 @@ namespace Step0_SingletonsEverywhere
         private readonly List<Order> InMemoryDatabase;
         public Order GetById(int id)
         {
-            Logger.Instance.Log($"Getting Order {id}");
+            Logger.GetInstance().Log($"Getting Order {id}");
             return InMemoryDatabase.Find(o => o.Id == id);
         }
 
         public void Save(Order order)
         {
-            Logger.Instance.Log($"Saving order {order.Id}");
+            Logger.GetInstance().Log($"Saving order {order.Id}");
             if (InMemoryDatabase.Find(o => o.Id == order.Id) == null)
             {
                 

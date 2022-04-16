@@ -4,26 +4,25 @@
     {
         #region Singleton pattern
         private static CancelOrderHandler instance;
-        public static CancelOrderHandler Instance
+        public static CancelOrderHandler GetInstance()
         {
-            get
+            if (instance == null)
             {
-                if (instance == null)
-                {
-                    instance = new CancelOrderHandler();
-                }
-                return instance;
+                instance = new CancelOrderHandler();
             }
+            return instance;
         }
         private CancelOrderHandler() { }
         #endregion
 
         public void Handle(CancelOrder command)
         {
-            Logger.Instance.Log($"Cancelling order {command.OrderId}");
-            var order = InMemoryRepository.Instance.GetById(command.OrderId);
+            var order = InMemoryRepository.GetInstance().GetById(command.OrderId);
+
+            Logger.GetInstance().Log($"Cancelling order {command.OrderId}");
             order.Status = OrderStatus.Cancelled;
-            InMemoryRepository.Instance.Save(order);
+
+            InMemoryRepository.GetInstance().Save(order);
         }
     }
 }
