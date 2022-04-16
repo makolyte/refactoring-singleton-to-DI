@@ -3,24 +3,13 @@ using System.Collections.Generic;
 
 namespace Step0_SingletonsEverywhere
 {
-    public class InMemoryRepository
+    public class InMemoryRepository : IOrderRepository
     {
-        #region Singleton pattern
-        private static InMemoryRepository instance;
-        public static InMemoryRepository GetInstance(ILogger logger)
-        {
-            if (instance == null)
-            {
-                instance = new InMemoryRepository(logger);
-            }
-            return instance;
-        }
-        private InMemoryRepository(ILogger logger) 
+        public InMemoryRepository(ILogger logger)
         {
             Logger = logger;
             InMemoryDatabase = new List<Order>();
         }
-        #endregion
 
         private readonly ILogger Logger;
 
@@ -36,11 +25,11 @@ namespace Step0_SingletonsEverywhere
             Logger.Log($"Saving order {order.Id}");
             if (InMemoryDatabase.Find(o => o.Id == order.Id) == null)
             {
-                
+
                 InMemoryDatabase.Add(order);
             }
         }
 
-        
+
     }
 }
