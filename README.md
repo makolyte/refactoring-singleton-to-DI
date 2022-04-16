@@ -5,7 +5,7 @@ You're using the singleton pattern everywhere with hardcoded dependencies. You w
 # Step 1 - Refactor to the DI pattern
 
 1. Remove the singleton pattern by creating a public constructor and passing in dependencies (instead of hardcoding them)
-2. Create interfaces for dependencies that might need different concrete implementations swapped in (use tests as a guide here)
+2. Create interfaces for dependencies that might need different concrete implementations (or mocked out). i.e. IOrderRepository, ILogger
 3. In the composition root (the main entry point of the program), create single instances and pass in dependencies.
 
 At the end, Main() should look like this:
