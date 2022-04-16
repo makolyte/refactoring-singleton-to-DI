@@ -40,9 +40,13 @@ cancelOrderHandler.Handle(new CancelOrder(1));
 ```
 
 # Refactoring practice
-I've provided the three steps shown above as projects. To maximize learning, I suggest starting with Step0-StartingPoint and doing the refactoring steps yourself.
+1. Clone this repository
+2. Open up the Step0-StartingPoint project.
+3. Do the refactoring steps
 
-Use whatever DI library you want. I'm using Ninject because I'm showing someone how to use it.
+Note: Use whatever DI library you want.
+
+I may provide the refactoring step projects in the future as a reference. To maximize learning, I suggest starting with the Step0-StartingPoint project and copying it to a new project to do the refactoring. That way you can compare the starting point and refactored code.
 
 # References
 1. Names and dependencies are from this realistic-looking example: https://docs.simpleinjector.org/en/latest/quickstart.html
