@@ -2,23 +2,11 @@
 {
     public class CancelOrderHandler
     {
-        #region Singleton pattern
-        private static CancelOrderHandler instance;
-        public static CancelOrderHandler GetInstance(ILogger logger, IOrderRepository repository)
-        {
-            if (instance == null)
-            {
-                instance = new CancelOrderHandler(logger, repository);
-            }
-            return instance;
-        }
-        private CancelOrderHandler(ILogger logger, IOrderRepository repository) 
+        public CancelOrderHandler(ILogger logger, IOrderRepository repository) 
         {
             Logger = logger;
             Repository = repository;
         }
-        #endregion
-
         private readonly ILogger Logger;
         private readonly IOrderRepository Repository;
 
