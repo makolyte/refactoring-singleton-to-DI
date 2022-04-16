@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step0-SingletonsEverywhere"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step1-RefactorToDI", "Step1-RefactorToDI\Step1-RefactorToDI.csproj", "{6093F124-9FF8-4E62-B937-A4786292A455}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step2-UseDILibrary", "Step2-UseDILibrary\Step2-UseDILibrary.csproj", "{9FAD2719-703D-46E4-BE65-867D9225D854}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6093F124-9FF8-4E62-B937-A4786292A455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6093F124-9FF8-4E62-B937-A4786292A455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6093F124-9FF8-4E62-B937-A4786292A455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FAD2719-703D-46E4-BE65-867D9225D854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FAD2719-703D-46E4-BE65-867D9225D854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FAD2719-703D-46E4-BE65-867D9225D854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FAD2719-703D-46E4-BE65-867D9225D854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
