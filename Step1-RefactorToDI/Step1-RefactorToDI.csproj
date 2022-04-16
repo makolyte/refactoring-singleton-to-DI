@@ -46,6 +46,7 @@
     <Compile Include="CancelOrder.cs" />
     <Compile Include="CancelOrderHandler.cs" />
     <Compile Include="ILogger.cs" />
+    <Compile Include="IOrderRepository.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderStatus.cs" />

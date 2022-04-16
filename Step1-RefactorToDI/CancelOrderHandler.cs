@@ -4,30 +4,32 @@
     {
         #region Singleton pattern
         private static CancelOrderHandler instance;
-        public static CancelOrderHandler GetInstance(ILogger logger)
+        public static CancelOrderHandler GetInstance(ILogger logger, IOrderRepository repository)
         {
             if (instance == null)
             {
-                instance = new CancelOrderHandler(logger);
+                instance = new CancelOrderHandler(logger, repository);
             }
             return instance;
         }
-        private CancelOrderHandler(ILogger logger) 
+        private CancelOrderHandler(ILogger logger, IOrderRepository repository) 
         {
             Logger = logger;
+            Repository = repository;
         }
         #endregion
 
         private readonly ILogger Logger;
+        private readonly IOrderRepository Repository;
 
         public void Handle(CancelOrder command)
         {
-            var order = InMemoryRepository.GetInstance(Logger).GetById(command.OrderId);
+            var order = Repository.GetById(command.OrderId);
 
             Logger.Log($"Cancelling order {command.OrderId}");
             order.Status = OrderStatus.Cancelled;
 
-            InMemoryRepository.GetInstance(Logger).Save(order);
+            Repository.Save(order);
         }
     }
 }
